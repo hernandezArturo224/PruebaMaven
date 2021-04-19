@@ -16,6 +16,7 @@ public class VistaPrueba {
 	
 	public static void main(String[] args) {
 		
+		UsoLogger.createLogguer();
 		Logger log = UsoLogger.getLogger(VistaPrueba.class);
 		log.info("Programa iniciado...");
 		

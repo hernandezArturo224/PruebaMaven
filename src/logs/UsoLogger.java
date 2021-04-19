@@ -12,7 +12,9 @@ public class UsoLogger {
 	
 	public static void createLogguer() {
 		 ClassLoader loader = Thread.currentThread().getContextClassLoader();
-		 URL url = loader.getResource("log4j.properties");
+		 //URL url = loader.getResource("log4j.properties");
+		 String url = "C:\\Users\\Formacion\\eclipse-workspace\\PruebaSerbaticJavaOPCIONAL\\resources\\log4j.properties";
+		 
 		 PropertyConfigurator.configure(url);
 	}
 	
