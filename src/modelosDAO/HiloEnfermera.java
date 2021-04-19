@@ -2,16 +2,19 @@ package modelosDAO;
 
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import modelosVO.*;
 import controladores.*;
-
+import logs.*;
 public class HiloEnfermera extends Thread{
 	public static final int DORMIR=1000;
-	
+	public Logger log;
 	private Enfermeros enfermero;
 	
 		public HiloEnfermera(Enfermeros enfermero) {
 			this.enfermero = enfermero;
+			log = UsoLogger.getLogger(HiloEnfermera.class);
 			
 		}
 		
@@ -40,6 +43,7 @@ public class HiloEnfermera extends Thread{
 					Thread.sleep(DORMIR);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
+					log.fatal("Error al hacer sleep ");
 					e.printStackTrace();
 				}
 			}

@@ -2,12 +2,18 @@ package modelosDAO;
 
 import basedatos.Conexion;
 import controladores.ControladorPersonas;
+import logs.UsoLogger;
 
 import java.sql.*;
 import java.util.*;
+
+import org.apache.log4j.Logger;
+
 import modelosVO.*;
 
 public class PersonasInformesDAO {
+	
+	public static Logger log = UsoLogger.getLogger(PersonasInformesDAO.class);
 	
 	
 	public static void insertaInformes(int init,int fin) {
@@ -31,9 +37,11 @@ public class PersonasInformesDAO {
 				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
+				log.fatal("Error al esperar con sleep");
 				e.printStackTrace();
 			}
 		}
+		log.info("Informes insertados");
 		Conexion.desconectar();
 	}
 	
@@ -45,6 +53,7 @@ public class PersonasInformesDAO {
 			 stmt.execute();
 			 conex.commit();
 		}catch(SQLException e) {
+			log.fatal("Error al insertar un informe");
 			e.printStackTrace();
 		}
 	}
@@ -60,8 +69,11 @@ public class PersonasInformesDAO {
 			System.out.println(resultado);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			log.fatal("Error al consultar los infectados");
 			e.printStackTrace();
 		}
+		
+		log.info("Infectados obtenidos");
 		
 		return resultado;
 		

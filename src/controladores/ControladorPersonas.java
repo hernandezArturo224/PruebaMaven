@@ -4,7 +4,11 @@ import modelosVO.*;
 import modelosDAO.*;
 import java.util.*;
 
+import org.apache.log4j.Logger;
+
 import basedatos.Conexion;
+
+import logs.*;
 
 
 public class ControladorPersonas {
@@ -14,6 +18,8 @@ public class ControladorPersonas {
 	private static boolean enfermeroActivo = false;
 	
 	public static boolean stop=true;
+	
+	public static Logger log = UsoLogger.getLogger(ControladorPersonas.class);
 	
 	
 	public static void muestraPersonasFromCiudad(int id_ciudad) {
@@ -41,6 +47,7 @@ public class ControladorPersonas {
 			
 		}
 		System.out.println("Enfermeros/Pacientes actualizados");
+		log.info("Enfermeros y pacientes actualizados");
 	}
 	
 	
@@ -50,10 +57,11 @@ public class ControladorPersonas {
 			for(Map.Entry<Integer, Vacunable> entrada: enfermeros.entrySet()) {
 				pila.add(entrada.getValue());
 			}
-			
+			log.info("Enfermero establecido");
 			return (Enfermeros) pila.pop(); //extraemos el ultimo que entro de la pila
 		}else {
 			System.out.println("Ya hay un enfermero");
+			log.warn("Ya hay enfermeros...");
 			return null;
 		}
 		

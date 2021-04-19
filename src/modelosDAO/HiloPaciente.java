@@ -1,6 +1,9 @@
 package modelosDAO;
+import org.apache.log4j.Logger;
+
 import controladores.ControladorPersonas;
 import modelosVO.*;
+import logs.*;
 
 public class HiloPaciente extends Thread{
 	
@@ -10,9 +13,12 @@ public class HiloPaciente extends Thread{
 	
 	private Pacientes paciente;
 	
+	public Logger log;
+	
 	
 	public HiloPaciente(Pacientes pac) {
 		this.paciente = pac;
+		log = UsoLogger.getLogger(HiloPaciente.class);
 	}
 	
 	public void run() {
@@ -46,6 +52,7 @@ public class HiloPaciente extends Thread{
 				Thread.sleep(DORMIR_SUPER);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
+				log.fatal("Error en sleep");
 				e.printStackTrace();
 			}
 		}else if(aleatorio > 33 && aleatorio < 66) {
@@ -54,6 +61,7 @@ public class HiloPaciente extends Thread{
 				Thread.sleep(DORMIR_CURRO);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
+				log.fatal("Error en sleep");
 				e.printStackTrace();
 			}
 		}else{
@@ -62,6 +70,7 @@ public class HiloPaciente extends Thread{
 				Thread.sleep(DORMIR_TRANSPORTE);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
+				log.fatal("Error en sleep");
 				e.printStackTrace();
 			}
 		}

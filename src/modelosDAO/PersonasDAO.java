@@ -2,12 +2,18 @@ package modelosDAO;
 
 import java.sql.*;
 import java.util.*;
+
+import org.apache.log4j.Logger;
+
 import basedatos.*;
+import logs.UsoLogger;
 import modelosVO.*;
 
 
 
 public class PersonasDAO {
+	
+	public static Logger log = UsoLogger.getLogger(PersonasDAO.class);
 	
 	public static ArrayList<Personas> getPersonasFromCiudad(int id_ciudad){
 		
@@ -25,6 +31,7 @@ public class PersonasDAO {
 				 
 			 }catch(SQLException e) {
 				 //e.printStackTrace();
+				 log.fatal("Error al consultar la base de datos");
 				 arrayPersonas = null;
 			 }
 			 

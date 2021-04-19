@@ -1,13 +1,24 @@
 package vistas;
+
 import javax.swing.JOptionPane;
+
+import org.apache.log4j.Logger;
 
 import controladores.*;
 import modelosDAO.PersonasInformesDAO;
 import modelosVO.*;
 
+import logs.*;
+
+
 public class VistaPrueba {
 
+	
 	public static void main(String[] args) {
+		
+		Logger log = UsoLogger.getLogger(VistaPrueba.class);
+		log.info("Programa iniciado...");
+		
 		// TODO Auto-generated method stub
 		
 		//para probar usar la ciudad 9 que si tiene enfermeros
