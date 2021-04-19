@@ -1,0 +1,16 @@
+modelosDAO\PersonasDAO.class
+modelosVO\Ciudades.class
+modelosDAO\HiloEnfermera.class
+vistas\VistaPrueba.class
+modelosVO\Infectable.class
+modelosVO\Vacunable.class
+modelosVO\Moveable.class
+modelosDAO\PersonasInformesDAO.class
+modelosDAO\HiloPaciente.class
+controladores\ControladorPersonas.class
+modelosDAO\HiloInsercion.class
+basedatos\Conexion.class
+modelosVO\PersonasInforme.class
+modelosVO\Enfermeros.class
+modelosVO\Pacientes.class
+modelosVO\Personas.class
